@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!expression.contains("=")) {
                         display.setText(expression);
                     } else {
-                        value = parseExpression();
+                        value = calculate();
                         display.setText(String.valueOf(value));
                     }
                 });
@@ -77,11 +77,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public double parseExpression() {
-        String expressionOperators = "+-*/";
+    public double calculate() {
+        double result = 0.0;
+        if (expression.contains("+")) {
+            String[] items = expression.split("+");
+            double num1 = Double.parseDouble(items[0]);
+            double num2 = Double.parseDouble(items[1]);
+            result = num1 + num2;
 
+        } else if (expression.contains("-")) {
 
-        return 0.0;
+        } else if (expression.contains("*")) {
+
+        } else if (expression.contains("/")) {
+
+        }
+
+        return result;
     }
 
 }
